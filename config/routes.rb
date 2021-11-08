@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root "pages#index"
+  get "/about", to: "pages#about"
+
+  # users function
+  get "/sign_up", to: "users#sign_up"
+  post "/account_user", to: "account_verify"
 end

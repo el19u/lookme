@@ -1,1 +1,24 @@
 <h1>會員註冊</h1>
+
+<%= form_for(@user, url: "/account_verify") do |f| %>
+
+  <div class="fields">
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+  </div>
+
+  <div class="fields">
+  <%= f.label :username%>
+  <%= f.text_field :username%>
+  </div>
+
+  <div class="fields">
+  <%= f.label :password%>
+  <%= f.password_field :password%>
+  </div>
+
+  <div class="actions">
+  <%= f.submit "註冊" %>
+  </div>
+
+<% end %>

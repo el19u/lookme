@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  # skip_before_action :verify_authenticity_token
 
   def sign_up
     @user = User.new
@@ -15,7 +14,21 @@ class UsersController < ApplicationController
     else
       render :sign_up
     end
+  end
 
+  def sign_in
+    @user = User.new
+  end
+
+  def check
+    u = User.login(params[:user])
+
+    if u
+      session[:login] = u.id
+      redirect_to "/"
+    else
+      render html "no user"
+    end
   end
 
 end

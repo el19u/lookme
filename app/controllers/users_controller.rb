@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  # skip_before_action :verify_authenticity_token
+
   def sign_up
     @user = User.new
   end
@@ -13,6 +15,7 @@ class UsersController < ApplicationController
     else
       render :sign_up
     end
+
   end
 
 end

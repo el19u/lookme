@@ -4,10 +4,8 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def account_verify
-    clean_params = params.require(:user).permit(:username, :password, :email)
-    
-    @user = User.new(clean_params)
+  def account_verify    
+    @user = User.new(user_params)
 
     if @user.save
       redirect_to "/"
@@ -31,4 +29,9 @@ class UsersController < ApplicationController
     end
   end
 
+  private
+  def user_params
+    clean_params = params.require(:user).permit(:username, :password, :email)
+  end
+  
 end

@@ -11,6 +11,9 @@
   </head>
 
   <body>
+    <%= render 'components/flash_message' if notice %>
     <%= yield %>
+    <%= render 'components/footer' %>
   </body>
+
 </html>

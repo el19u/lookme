@@ -13,10 +13,10 @@
   </thead>
   <tbody>
     <% @courses.each do |course| %>
-      <td><%= course.name %></td>
-      <td><%= course.price %></td>
-      <td><%= course.intro %></td>
-      <td><%= course.hour %></td>
+        <td><%= course.name %></td>
+        <td><%= course.price %></td>
+        <td><%= course.intro %></td>
+        <td><%= course.hour %></td>
     <td>
       <%= link_to "修改", edit_course_path(course) %>
       <%= link_to "刪除", course_path(course), method: "delete", data: { confirm: "Do You Sure" } %>

@@ -25,8 +25,13 @@ class UsersController < ApplicationController
       session[:login] = u.id
       redirect_to "/"
     else
-      render html "no user"
+      render html: "no user"
     end
+  end
+
+  def sign_out
+    session[:login] = nil
+    redirect_to courses_path, notice: '已登出'
   end
 
   private

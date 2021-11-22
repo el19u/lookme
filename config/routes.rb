@@ -16,5 +16,5 @@ Rails.application.routes.draw do
   get "/sign_in", to: "users#sign_in"
   post "/sign_in/check", to: "users#check"
 
-
+  delete "/sign_out", to: "users#sign_out"
 end

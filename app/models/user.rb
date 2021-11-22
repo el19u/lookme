@@ -4,6 +4,8 @@ class User < ApplicationRecord
   validates :username, :password, presence: true 
   validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/}
 
+  has_many :courses
+
   before_create :encrypt_password
 
   def self.login(user_info)

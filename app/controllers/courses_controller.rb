@@ -1,10 +1,15 @@
 class CoursesController < ApplicationController
   before_action :find_course, only: [:edit, :update, :destroy]
-  before_action :require_login?, except: [:index, :show]
+  before_action :authenticate!, except: [:index, :show]
 
 
   def index
     @courses = Course.all
+  end
+
+  def show
+    @course = Course.find(params[:id])
+    @review = Review.new
   end
 
   def new
@@ -40,10 +45,6 @@ class CoursesController < ApplicationController
   private
   def find_course
     @course = current_user.courses.find(params[:id])
-  end
-
-  def require_login?
-    redirect_to sign_in_path, notice: '請先登入會員' unless user_signed_in?
   end
 
   def course_params

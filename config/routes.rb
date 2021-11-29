@@ -4,7 +4,10 @@ Rails.application.routes.draw do
 
   # resources :products, only: [:index, :show]
   # get '/product/:id/buy_aloso', to: 'pages#courses'
-  resources :courses
+  resources :courses do
+    resources :reviews, only: [:create]
+  end
+  resources :reviews, only: [:destroy]
   
   root "pages#index"
   get "/about", to: "pages#about"
@@ -15,6 +18,6 @@ Rails.application.routes.draw do
   
   get "/sign_in", to: "users#sign_in"
   post "/sign_in/check", to: "users#check"
-
   delete "/sign_out", to: "users#sign_out"
+
 end

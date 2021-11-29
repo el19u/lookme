@@ -18,4 +18,8 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by(id:session[:login])
   end
 
+  def authenticate!
+    redirect_to sign_in_path, notice: '請先登入會員' unless user_signed_in?
+  end
+
 end

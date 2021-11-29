@@ -1,0 +1,22 @@
+<h1> <%= @course.name %> </h1>
+
+<%= form_with(model: @review, url: course_reviews_path(@course)) do |f| %>
+    <div class="field">
+      <%= f.label("title") %>
+      <%= f.text_field(:title) %>
+    </div>
+
+    <div class="field">
+      <%= f.label("rating") %>
+      <%= f.select(:rating,[ 1,2,3,4,5 ], include_blank: false, selected: 5 ) %>
+    </div>
+
+    <div class="field">
+      <%= f.label("content") %>
+      <%= f.text_area(:content) %>
+    </div>
+  
+    <div class="submit">
+      <%= f.submit("Submit")%>
+    </div>
+<% end %>

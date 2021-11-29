@@ -8,6 +8,7 @@
     <%= course.price %>
     <%= course.intro %>
     <%= course.hour %>
+    <%= link_to "review", course_path(course) %>
     <%= link_to "修改", edit_course_path(course) %>
     <%= link_to "刪除", course_path(course), method: "delete", data: { confirm: "Are You Sure" } %>
   </div>

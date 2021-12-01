@@ -10,6 +10,8 @@ class CoursesController < ApplicationController
   def show
     @course = Course.find(params[:id])
     @review = Review.new
+    @reviews = Review.where(course_id: @course.id)
+    # @reviews = @course.reviews.order(id: :desc)
   end
 
   def new

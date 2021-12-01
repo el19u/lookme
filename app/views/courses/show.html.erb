@@ -1,6 +1,6 @@
 <h1> <%= @course.name %> </h1>
 
-<%= form_with(model: @review, url: course_reviews_path(@course)) do |f| %>
+<%= form_with(model: @review, url: course_reviews_path(@course), local: false, class: "new_review") do |f| %>
     <div class="field">
       <%= f.label("title") %>
       <%= f.text_field(:title) %>
@@ -8,7 +8,7 @@
 
     <div class="field">
       <%= f.label("rating") %>
-      <%= f.select(:rating,[ 1,2,3,4,5 ], include_blank: false, selected: 5 ) %>
+      <%= f.select(:rating,[ 1,2,3,4,5 ], include_blank: true ) %>
     </div>
 
     <div class="field">
@@ -19,4 +19,9 @@
     <div class="submit">
       <%= f.submit("Submit")%>
     </div>
+
+    <h2>review</h2>
+      <div class="review-container">
+        <%= render @reviews %>
+      </div>
 <% end %>

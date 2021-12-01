@@ -1,4 +1,8 @@
-<h1> <%= @course.name %> </h1>
+<h1> 
+<%= @course.name %> 
+<button class="like-btn">Like!</button>
+</h1>
+
 
 <%= form_with(model: @review, url: course_reviews_path(@course), local: false, class: "new_review") do |f| %>
     <div class="field">

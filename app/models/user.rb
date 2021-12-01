@@ -5,6 +5,8 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/}
 
   has_many :courses
+  has_many :favor_courses
+  has_many :favorite_courses, source: :course, through: :favor_courses
 
   before_create :encrypt_password
 

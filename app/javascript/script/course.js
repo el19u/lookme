@@ -1,17 +1,19 @@
-import axios from "axios";
+import httpClient from "../lib/http/client";
 
 document.addEventListener("turbolinks:load", function (e) {
-  const likeBtn = document.querySelector(".like-btn");
+  const likeBtn = document.querySelector("#like-btn");
 
   likeBtn &&
     likeBtn.addEventListener("click", () => {
-      // console.log(axios);
-      const url = "https://randomuser.me/api/?results=5";
-      axios.get(url).then(({ data }) => {
-        likeBtn.classList.add("favorited");
-        data.results.forEach((u) => {
-          console.log(u.email);
-        });
+      const courseID = likeBtn.dataset.id;
+      const url = `/api/v1/courses/${courseID}/like`;
+
+      httpClient.post(url).then(({ data }) => {
+        if (data.status === "like") {
+          likeBtn.classList.add("favorited");
+        } else {
+          likeBtn.classList.remove("favorited");
+        }
       });
     });
 });

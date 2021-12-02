@@ -13,7 +13,7 @@ class CoursesController < ApplicationController
     @reviews = Review.where(course_id: @course.id)
     # @reviews = @course.reviews.order(id: :desc)
   end
-
+  
   def new
     @course = Course.new
   end

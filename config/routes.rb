@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  namespace :api do
+    namespace :v1 do
+      resources :courses, only: [] do
+        member do
+          post :like
+        end
+      end
+    end
+  end
+
   # 課程列表
   # /product/:id/buy_aloso
 

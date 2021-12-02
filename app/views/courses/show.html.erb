@@ -1,6 +1,12 @@
 <h1> 
-<%= @course.name %> 
-<button class="like-btn">Like!</button>
+  <%= @course.name %>
+
+  <% if user_signed_in? && current_user.favorite_courses.include?(@course) %>
+    <button id="like-btn" class="favorited" data-id="<%= @course.id %>">Like!</button>
+  <% else %>
+    <button id="like-btn" data-id="<%= @course.id %>">Like!</button>
+  <% end %>
+
 </h1>
 
 

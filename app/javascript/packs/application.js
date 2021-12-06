@@ -14,3 +14,5 @@ ActiveStorage.start();
 
 import "stylesheets";
 import "script";
+
+import "controllers"

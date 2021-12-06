@@ -15,6 +15,7 @@
 
 </h1>
 
+<%= link_to "Buy", buy_course_path %>
 
 <%= form_with(model: @review, url: course_reviews_path(@course), local: false, class: "new_review") do |f| %>
     <div class="field">

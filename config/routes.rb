@@ -14,6 +14,18 @@ Rails.application.routes.draw do
 
   # resources :products, only: [:index, :show]
   # get '/product/:id/buy_aloso', to: 'pages#courses'
+
+  # /ordes
+  resources :orders, only: [:index, :create] do
+    
+  end
+
+  resources :courses do
+    member do
+      get :buy
+    end
+  end
+
   resources :courses do
     resources :reviews, only: [:create]
   end

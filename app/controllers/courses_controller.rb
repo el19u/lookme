@@ -44,6 +44,10 @@ class CoursesController < ApplicationController
     redirect_to courses_path, notice: "Success"
   end
 
+  def buy
+    @order = Order.new
+  end
+
   private
   def find_course
     @course = current_user.courses.find(params[:id])

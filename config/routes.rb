@@ -16,9 +16,7 @@ Rails.application.routes.draw do
   # get '/product/:id/buy_aloso', to: 'pages#courses'
 
   # /ordes
-  resources :orders, only: [:index, :create] do
-    
-  end
+
 
   resources :courses do
     member do
@@ -28,6 +26,7 @@ Rails.application.routes.draw do
 
   resources :courses do
     resources :reviews, only: [:create]
+    resources :orders, only: [:create]
   end
   resources :reviews, only: [:destroy]
   

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_06_063152) do
+ActiveRecord::Schema.define(version: 2021_12_16_032455) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2021_12_06_063152) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
+    t.integer "reviews_count", default: 0
     t.index ["user_id"], name: "index_courses_on_user_id"
   end
 
@@ -46,6 +47,7 @@ ActiveRecord::Schema.define(version: 2021_12_06_063152) do
     t.string "state"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "paid_at"
     t.index ["course_id"], name: "index_orders_on_course_id"
     t.index ["serial"], name: "index_orders_on_serial", unique: true
     t.index ["user_id"], name: "index_orders_on_user_id"
